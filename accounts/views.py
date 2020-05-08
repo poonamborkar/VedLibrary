@@ -42,7 +42,7 @@ def signup(request):
         else:
             user = User.objects.create_user(username = username, password = repassword, email = email, first_name = name);
             user.save();
-            return redirect('login')
+            return redirect('librarylogin')
         return redirect('signup')
     return render(request,'signup.html')
 
