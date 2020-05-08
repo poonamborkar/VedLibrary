@@ -25,7 +25,7 @@ SECRET_KEY = 'z52gvb-*elvss(q-!@cncnhma&x^o+q)4im^ko)5fpn*idhnax'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
