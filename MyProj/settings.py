@@ -43,12 +43,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'MyProj.urls'
@@ -125,7 +127,7 @@ SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join( SITE_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 SITE_STATIC_ROOT = os.path.join( SITE_ROOT, 'local_static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
