@@ -127,11 +127,11 @@ PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'root')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'root')
 STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\','/')
 # SITE_STATIC_ROOT = os.path.join( SITE_ROOT, 'local_static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(STATIC_ROOT,'static')
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
