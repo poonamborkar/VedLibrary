@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,18 +123,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
-PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
-
+SITE_ROOT = os.path.abspath(os.path.dirname(__file__))
+...
 STATIC_URL = '/static/'
+...
+STATIC_ROOT = os.path.join( SITE_ROOT, 'static')
+SITE_STATIC_ROOT = os.path.join( SITE_ROOT, 'local_static')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'root').replace('\\','/')
-# STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\','/')
-# SITE_STATIC_ROOT = os.path.join( SITE_ROOT, 'local_static')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Don't forget to use absolute paths, not relative paths.
+    ('', SITE_STATIC_ROOT),
+    (SITE_ROOT, 'static')
+)
 
 MEDIA_URL= '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
